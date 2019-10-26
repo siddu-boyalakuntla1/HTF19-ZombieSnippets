@@ -1,0 +1,8 @@
+  <!-- { % with message = get_flashed_messages()%}
+                    {% if messages %}
+                    {%for message in messages%}
+                    <div class = "alert">{{ message}}</div>
+                    {%endfor%}
+
+                    {%endif%}
+                    {% endwith %} -->
