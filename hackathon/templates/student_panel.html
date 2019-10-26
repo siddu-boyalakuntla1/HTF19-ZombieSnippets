@@ -1,0 +1,40 @@
+{% extends "panel_layout.html" %}
+{% block content %}
+<style>
+    tr{
+        text-align:center;
+    }
+    td{
+        text-align:center;
+    }
+    table{
+        text-align:center;
+    }
+</style>
+<div class="container">
+    {% if post_data%}
+    <form action = {{ url_for('forward') }}  method="POST">
+    <table class = "table">
+        <tr><th>Select</th></th><th>EventName</th><th>EventId</th><th>Date</th><th>StartTime</th><th>EndTime</th></tr>
+    {% for post in post_data%}
+        
+            <tr>
+            <td><input type="checkbox" class="form-check-input" name ="check{{loop.index}}" value= {{ post[1] }}></td>       
+            <td>{{ post[0]}}</td>
+            <td>{{ post[1]}}</td>
+            <td>{{ post[2]}}</td>
+            <td>{{ post[3]}}</td>
+            <td>{{ post[4]}}</td>
+        
+        </tr>
+    
+    {%endfor%}
+    
+</table>
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+    {%endif%}
+    
+</div>
+
+{% endblock content %}
